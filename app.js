@@ -12,19 +12,28 @@ var config = {
 // Initialize Firebase
 firebase.initializeApp(config);
 
-const dbRef = firebase.database().ref('dataSync');
 var countingViews;
+var userLang = navigator.language || navigator.userLanguage; 
+userLang = userLang.substring(0, 2);
 
-dbRef.once('value')
+firebase.database().ref().child('dataSync').once('value')
 .then(r => {
   if(!countingViews) countingViews = r.val().visitas;
 })
 .then(()=>{
-  dbRef.set({
+  firebase.database().ref().child('dataSync').set({
     visitas: countingViews + 1
   })
 })
 
-var userLang = navigator.language || navigator.userLanguage; 
-alert(userLang.substring(0, 2));
+firebase.database().ref().child('texting').once('value')
+.then(r => {
+  console.log(r.val());
+  
+  if(userLang == 'es'){
+    $('#socialText').html(r.val().socialTexto)
+  } else {
+    $('#socialText').html(r.val().socialText)
+  }
 
+})
