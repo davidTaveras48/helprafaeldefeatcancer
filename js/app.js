@@ -15,16 +15,18 @@ firebase.initializeApp(config);
 var countingViews;
 var userLang = navigator.language || navigator.userLanguage; 
 userLang = userLang.substring(0, 2);
+var URLactual = window.location;
+alert(URLactual);
 
 firebase.database().ref().child('dataSync').once('value')
 .then(r => {
   if(!countingViews) countingViews = r.val().views;
 })
-.then(()=>{
-  firebase.database().ref('dataSync').update({
-    views: countingViews + 1
-  })
-})
+// .then(()=>{
+//   firebase.database().ref('dataSync').update({
+//     views: countingViews + 1
+//   })
+// })
 
 firebase.database().ref('texting').once('value')
 .then(r => {
