@@ -1,0 +1,87 @@
+.cover {
+  width: 100%;
+  box-shadow: 0 0 9px 0px #0000004f;
+}
+
+.img_presentation {
+  width: 55%;
+  border: 5px solid white;
+  border-radius: 40px;
+}
+
+hr{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 5px solid rgba(0,0,0,.1);
+  border-radius: 10px;
+  width: 60%;
+}
+
+.mainCover {
+  background: linear-gradient(45deg, #e249d8, #6c60fe, #e249d8);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.topic {
+  font-weight: 400;
+}
+
+@media screen and (max-width: 450px) {
+  .mainCover{
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .topic {
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .mainCover{
+    height: 100px;
+  }
+}
+
+.footerPage {
+  height: 200px;
+  background: white;
+  box-shadow: 0 0 20px 1px #00000033;
+  padding: 30px;
+}
+
+@media screen and (max-width: 995px) {
+  .footerPage {
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 20px 1px #00000033;
+    padding: 30px;
+  }
+}
+
+svg {
+  margin-right: 10px;
+}
+
+.biblicalQuote {
+  font-size: 23px;
+}
+
+.biblicalQuoteBook2 {
+  font-size: 40px;
+  opacity: 0.8;
+}
+
+.divisor {
+  height: 6px;
+  border-radius: 30px;
+  background: #e4e4e4;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
