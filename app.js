@@ -26,5 +26,5 @@ dbRef.once('value')
 })
 
 var userLang = navigator.language || navigator.userLanguage; 
-alert(userLang);
+alert(userLang.substring(0, 2));
 
