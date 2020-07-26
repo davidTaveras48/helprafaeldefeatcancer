@@ -15,18 +15,20 @@ firebase.initializeApp(config);
 var countingViews;
 var userLang = navigator.language || navigator.userLanguage; 
 userLang = userLang.substring(0, 2);
-var URLactual = window.location;
-alert(URLactual);
+var url = window.location;
 
 firebase.database().ref().child('dataSync').once('value')
 .then(r => {
   if(!countingViews) countingViews = r.val().views;
 })
-// .then(()=>{
-//   firebase.database().ref('dataSync').update({
-//     views: countingViews + 1
-//   })
-// })
+.then(()=>{
+  if(url == 'https://helprafaeldefeatcancer.org/'){
+    firebase.database().ref('dataSync').update({
+      views: countingViews + 1
+    })
+    console.log('por aqui paso');
+  }
+})
 
 firebase.database().ref('texting').once('value')
 .then(r => {
