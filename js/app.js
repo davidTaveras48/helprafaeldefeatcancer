@@ -17,7 +17,7 @@ var userLang = navigator.language || navigator.userLanguage;
 userLang = userLang.substring(0, 2);
 var url = window.location;
 
-firebase.database().ref().child('dataSync').once('value')
+firebase.database().ref('dataSync').once('value')
 .then(r => {
   if(!countingViews) countingViews = r.val().views;
 })
@@ -26,9 +26,14 @@ firebase.database().ref().child('dataSync').once('value')
     firebase.database().ref('dataSync').update({
       views: countingViews + 1
     })
-    console.log('por aqui paso');
   }
 })
+.then(()=>{
+  firebase.database().ref('dataSync').on('value', r => {
+    $('.viewsCounter').html(r.val().views)
+  })
+})
+
 
 firebase.database().ref('texting').once('value')
 .then(r => {
