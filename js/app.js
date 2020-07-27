@@ -23,7 +23,7 @@ firebase.database().ref('dataSync').once('value')
   if(!countingViews) countingViews = r.val().views;
 })
 .then(()=>{
-  if(url == 'https://helprafaeldefeatcancer.org/'){
+  if(url == 'https://helprafaeldefeatcancer.org/' || url == 'http://helprafaeldefeatcancer.org/'){
     firebase.database().ref('dataSync').update({
       views: countingViews + 1
     });
