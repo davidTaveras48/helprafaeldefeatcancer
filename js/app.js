@@ -1,3 +1,8 @@
+var countingViews;
+var userLang = navigator.language || navigator.userLanguage; 
+userLang = userLang.substring(0, 2);
+var url = window.location;
+
 // Your web app's Firebase configuration
 var config = {
   apiKey: "AIzaSyCIKN1q-gAxxiecYSedO93DKWUBbuvPHZc",
@@ -12,10 +17,6 @@ var config = {
 // Initialize Firebase
 firebase.initializeApp(config);
 
-var countingViews;
-var userLang = navigator.language || navigator.userLanguage; 
-userLang = userLang.substring(0, 2);
-var url = window.location;
 
 firebase.database().ref('dataSync').once('value')
 .then(r => {
@@ -25,39 +26,11 @@ firebase.database().ref('dataSync').once('value')
   if(url == 'https://helprafaeldefeatcancer.org/'){
     firebase.database().ref('dataSync').update({
       views: countingViews + 1
-    })
+    });
   }
 })
 .then(()=>{
   firebase.database().ref('dataSync').on('value', r => {
-    $('.viewsCounter').html(r.val().views)
-  })
-})
-
-
-firebase.database().ref('texting').once('value')
-.then(r => {
-  if(userLang == 'es'){
-    $('.socialText').html(r.val().socialTexto);
-    $('.summary').html(r.val().resumen);
-    $('.biblicalQuote').html(r.val().citaBiblica);
-    $('.biblicalQuoteBook').html(r.val().citaBiblicaLibro);
-  } else {
-    $('.socialText').html(r.val().socialText);
-    $('.summary').html(r.val().summary);
-    $('.biblicalQuote').html(r.val().biblicalQuote);
-    $('.biblicalQuoteBook').html(r.val().biblicalQuoteBook);
-  }
-})
-
-$(document).ready(()=>{
-  if(userLang == 'es'){
-    $('.topic').html('Ayuda a Rafael a Vencer al Cancer')
-    $('.textInformative').html('a través de su cuenta en instagram.');
-    $('.footerSocialText').html('Rafael en redes sociales');
-  } else {
-    $('.topic').html('Help Rafael Defeat Cancer')
-    $('.textInformative').html('through his Instagram account.');
-    $('.footerSocialText').html('Rafael on social network');
-  }
-})
+    $('.viewsCounter').html(r.val().views);
+  });
+});
