@@ -56,7 +56,7 @@ $(document).ready(()=>{
     $('.textInformative').html('a través de su cuenta en instagram.');
     $('.footerSocialText').html('Rafael en redes sociales');
   } else {
-    $('.topic').html('Help Rafael Defefat Cancer')
+    $('.topic').html('Help Rafael Defeat Cancer')
     $('.textInformative').html('through his Instagram account.');
     $('.footerSocialText').html('Rafael on social network');
   }
