@@ -34,3 +34,48 @@ firebase.database().ref('dataSync').once('value')
     $('.viewsCounter').html(r.val().views);
   });
 });
+
+
+$(document).ready(()=>{
+  if(userLang == 'es'){
+    $('.topic').html('Ayuda a Rafael a Vencer al Cancer');
+    $('.footerSocialText').html('Rafael en redes sociales');
+    $('.socialText').html(socialTexto);
+    $('.summary').html(resumen);
+    $('.biblicalQuote').html(citaBiblica);
+    $('.biblicalQuoteBook').html(citaBiblicaLibro);
+    $('.changeEnglish').css('display', 'block');
+  } else {
+    $('.topic').html('Help Rafael Defeat Cancer');
+    $('.footerSocialText').html('Rafael on social network');
+    $('.socialText').html(socialText);
+    $('.summary').html(summary);
+    $('.biblicalQuote').html(biblicalQuote);
+    $('.biblicalQuoteBook').html(biblicalQuoteBook);
+    $('.changeSpanish').css('display', 'block');
+  }
+})
+
+changeEnglish = () => {
+  $('.topic').html('Help Rafael Defeat Cancer');
+  $('.footerSocialText').html('Rafael on social network');
+  $('.socialText').html(socialText);
+  $('.summary').html(summary);
+  $('.biblicalQuote').html(biblicalQuote);
+  $('.biblicalQuoteBook').html(biblicalQuoteBook);
+  $('.changeSpanish').css('display', 'block');
+  $('.changeEnglish').css('display', 'none');
+  $('html, body').animate( { scrollTop : 0 }, 800 );
+}
+
+changeSpanish = () => {
+  $('.topic').html('Ayuda a Rafael a Vencer al Cancer');
+  $('.footerSocialText').html('Rafael en redes sociales');
+  $('.socialText').html(socialTexto);
+  $('.summary').html(resumen);
+  $('.biblicalQuote').html(citaBiblica);
+  $('.biblicalQuoteBook').html(citaBiblicaLibro);
+  $('.changeSpanish').css('display', 'none');
+  $('.changeEnglish').css('display', 'block');
+  $('html, body').animate( { scrollTop : 0 }, 800 );
+}
